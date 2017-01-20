@@ -9,19 +9,14 @@ preference.
 
 You need Python 3.3 or later to setup and run the simulation and tests.
 
-# To install requirements:
------------------------------
-
+To install requirements:
+-----------------------------------
 make init
 
-
-# To run the game/simulation:
------------------------------
-
+To run the game/simulation:
+-----------------------------------
 make run 
 
-
-# To run tests:
------------------------------
-
+To run tests:
+-----------------------------------
 make test 
