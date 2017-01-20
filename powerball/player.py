@@ -100,3 +100,47 @@ class Player:
             numbers.append(next_number)
 
         return numbers
+
+    @staticmethod
+    def is_valid_number(number, number_list):
+        """
+        Check if current number is valid based on current index and state of number_list.
+        Invalid in cases:
+        1. not a numeric value.
+        2. out of range based on which kind of ball.
+        3. repeated white ball number.
+
+        :param number (int): the latest number to be checked.
+        :param number_list (list): the list of valid numbers added so far.
+
+        :return (bool): True if the number is valid. False otherwise.
+        """
+
+        white_ball_max = 69
+        power_ball_max = 26
+
+        number_count = len(number_list) + 1
+
+        # not a numeric value
+        if not isinstance(number, int):
+            return False
+
+        # less than lower limit
+        elif number < 1:
+            return False
+
+        # already has six numbers
+        elif number_count > 6:
+            return False
+
+        # invalid white ball - either out of range or repeated.
+        elif number_count < 6 and (number > white_ball_max or number in number_list):
+            return False
+
+        # invalid power ball - out of range
+        elif number_count == 6 and number > power_ball_max:
+            return False
+
+        else:
+            return True
+
