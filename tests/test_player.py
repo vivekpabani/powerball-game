@@ -154,3 +154,12 @@ class TestPlayerClass:
         valid = Player.is_valid_number(number, number_list)
 
         assert valid == False
+
+    def test_get_numbers_with_all_valid_numbers(self):
+
+        input_numbers = [2, 5, 8, 13, 45, 24]
+
+        with mock.patch('builtins.input', side_effect=input_numbers):
+            numbers = Player._get_numbers()
+
+        assert numbers == input_numbers
