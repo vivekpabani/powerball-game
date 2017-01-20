@@ -264,3 +264,12 @@ class TestPlayerClass:
         assert player.first_name == expected_output_names[0]
         assert player.last_name == expected_output_names[1]
         assert player.numbers == expected_output_numbers
+
+    def test_is_valid_player_with_all_valid_arguments(self):
+
+        names = ['Foo', 'Bar']
+        numbers = [2, 5, 8, 13, 45, 24]
+
+        player = Player(names[0], names[1], numbers)
+
+        assert player.is_valid_player() == True
