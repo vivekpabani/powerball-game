@@ -186,7 +186,7 @@ class Player:
         :return (bool): True if player instance is valid. False otherwise.
         """
 
-        valid = False
+        valid = True 
 
         # Either name is None
         if self.first_name is None or self.last_name is None:
