@@ -100,3 +100,57 @@ class TestPlayerClass:
         valid = Player.is_valid_number(number, number_list)
 
         assert valid == True
+
+    def test_is_valid_number_with_invalid_wb_15_repeated(self):
+
+        number = 15
+        number_list = [10, 15]
+
+        valid = Player.is_valid_number(number, number_list)
+
+        assert valid == False
+
+    def test_is_valid_number_with_invalid_wb_X_not_a_number(self):
+
+        number = 'X'
+        number_list = [10, 15]
+
+        valid = Player.is_valid_number(number, number_list)
+
+        assert valid == False
+
+    def test_is_valid_number_with_invalid_wb_0_lower_then_limit(self):
+
+        number = 0
+        number_list = [10, 15]
+
+        valid = Player.is_valid_number(number, number_list)
+
+        assert valid == False
+
+    def test_is_valid_number_with_invalid_wb_70_higher_then_limit(self):
+
+        number = 70
+        number_list = [10, 15]
+
+        valid = Player.is_valid_number(number, number_list)
+
+        assert valid == False
+
+    def test_is_valid_number_with_invalid_pb_0_lower_then_limit(self):
+
+        number = 0
+        number_list = [10, 15, 20, 25, 30]
+
+        valid = Player.is_valid_number(number, number_list)
+
+        assert valid == False
+
+    def test_is_valid_number_with_invalid_pb_27_higher_then_limit(self):
+
+        number = 27
+        number_list = [10, 15, 20, 25, 30]
+
+        valid = Player.is_valid_number(number, number_list)
+
+        assert valid == False
