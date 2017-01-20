@@ -182,17 +182,19 @@ class Player:
         :return (bool): True if player instance is valid. False otherwise.
         """
 
+        valid = False
+
         # Either name is None
         if self.first_name is None or self.last_name is None:
-            return False
+            valid = False
 
         # Either name is blank
         elif len(self.first_name.strip()) == 0 or len(self.last_name.strip()) == 0:
-            return False
+            valid = False
 
         # not exactly 6 numbers in the list.
         elif len(self.numbers) != 6:
-            return False
+            valid = False
 
         else:
             # check if all numbers are numeric.
@@ -209,17 +211,20 @@ class Player:
 
             # repeated white balls.
             if len(distinct_wb) != 5:
-                return False
+                valid = False
 
             # white ball out of range.
             elif min_wb < 1 or max_wb > 69:
-                return False
+                valid = False
 
             # power ball out of range.
             elif power_ball < 1 or power_ball > 26:
-                return False
+                valid = False
 
-        return True
+            else:
+                valid = True
+
+        return valid
 
     def __str__(self):
         """
