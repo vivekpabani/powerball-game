@@ -29,6 +29,21 @@ class Player:
         else:
             self.numbers = list()
 
+    @classmethod
+    def from_input(cls):
+        """
+        A class method to create an instance of Player with the user inputs for the attributes.
+        Get first name, last name and numbers from user by calling respective methods.
+
+        :return (Player): an instance of Player class with user entered attributes.
+        """
+
+        first_name = cls._get_name("first")
+        last_name = cls._get_name("last")
+        numbers = cls._get_numbers()
+
+        return cls(first_name, last_name, numbers)
+
     @staticmethod
     def _get_name(name_type):
         """
