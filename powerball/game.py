@@ -44,7 +44,7 @@ class Game:
 
             # True if user enters 'Y' or 'y'. False for any other input.
 
-            add_more = (input("Do you want to add another employee? (y/n) : ").strip().lower() == 'y')
+            add_more = (input("\nDo you want to add another player? (y for yes/any key for no) : ").strip().lower() == 'y')
 
     def generate_winning_numbers(self):
         """
