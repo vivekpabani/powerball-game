@@ -56,3 +56,17 @@ class Game:
         for player in self.players:
             print(player)
 
+    def display_winning_numbers(self):
+        """
+        Print the winning numbers if available, otherwise print error message.
+        """
+
+        print('\n')
+
+        if self.winning_numbers:
+            display_str = "{} {} {} {} {} Powerball: {}".format(*self.winning_numbers)
+        else:
+            display_str = "Winning numbers are not out yet. Patience!"
+
+        print("Powerball winning number:\n")
+        print(display_str)
