@@ -159,3 +159,17 @@ class Player:
         else:
             return True
 
+    def __str__(self):
+        """
+        String representation of the player instance displaying the names and ball numbers.
+        In case of invalid player, error message string is given.
+
+        :return (str): display string describing the player.
+        """
+
+        if self.is_valid_player():
+            display = "{} {} {} {} {} {} {} Powerball: {} ".format(self.first_name, self.last_name, *self.numbers)
+        else:
+            display = "Player object is not instancited with all valid data."
+
+        return display
