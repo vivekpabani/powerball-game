@@ -141,28 +141,32 @@ class Player:
 
         number_count = len(number_list) + 1
 
+        valid = True
+
         # not a numeric value
         if not isinstance(number, int):
-            return False
+            valid = False
 
         # less than lower limit
         elif number < 1:
-            return False
+            valid = False
 
         # already has six numbers
         elif number_count > 6:
-            return False
+            valid = False
 
         # invalid white ball - either out of range or repeated.
         elif number_count < 6 and (number > white_ball_max or number in number_list):
-            return False
+            valid = False
 
         # invalid power ball - out of range
         elif number_count == 6 and number > power_ball_max:
-            return False
+            valid = False
 
         else:
-            return True
+            valid = True
+
+        return valid
 
     def is_valid_player(self):
         """
