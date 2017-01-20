@@ -163,3 +163,56 @@ class TestPlayerClass:
             numbers = Player._get_numbers()
 
         assert numbers == input_numbers
+
+    def test_get_numbers_with_invalid_numbers_X_not_a_number(self):
+
+        input_numbers = [2, 5, 15, 8, 'X', 13, 24]
+
+        with mock.patch('builtins.input', side_effect=input_numbers):
+            numbers = Player._get_numbers()
+
+        expected_output_numbers = [2, 5, 15, 8, 13, 24]
+
+        assert numbers == expected_output_numbers
+
+    def test_get_numbers_with_invalid_numbers_15_repeated(self):
+
+        input_numbers = [2, 5, 15, 8, 15, 13, 24]
+
+        # more than 5 numbers are provided as mock input, since initial invalid
+        # inputs will result in next promt until valid value is entered.
+
+        with mock.patch('builtins.input', side_effect=input_numbers):
+            numbers = Player._get_numbers()
+
+        expected_output_numbers = [2, 5, 15, 8, 13, 24]
+
+        assert numbers == expected_output_numbers
+
+    def test_get_numbers_with_invalid_numbers_100_out_of_wb_range(self):
+
+        input_numbers = [2, 5, 15, 8, 100, 13, 24]
+
+        # more than 5 numbers are provided as mock input, since initial invalid
+        # inputs will result in next promt until valid value is entered.
+
+        with mock.patch('builtins.input', side_effect=input_numbers):
+            numbers = Player._get_numbers()
+
+        expected_output_numbers = [2, 5, 15, 8, 13, 24]
+
+        assert numbers == expected_output_numbers
+
+    def test_get_numbers_with_invalid_numbers_50_out_of_pb_range(self):
+
+        input_numbers = [2, 5, 15, 8, 13, 50, 24]
+
+        # more than 5 numbers are provided as mock input, since initial invalid
+        # inputs will result in next promt until valid value is entered.
+
+        with mock.patch('builtins.input', side_effect=input_numbers):
+            numbers = Player._get_numbers()
+
+        expected_output_numbers = [2, 5, 15, 8, 13, 24]
+
+        assert numbers == expected_output_numbers
