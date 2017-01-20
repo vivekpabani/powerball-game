@@ -159,6 +159,35 @@ class Player:
         else:
             return True
 
+    def is_valid_player(self):
+        """
+        Check if player is valid by verifying all the attributes.
+        In case when player instance is created by from_input method, verifiction is done by default.
+        When player instance is created by calling init method by providing the attributes explicitly,
+        this method verifies if the instance is valid.
+
+        Criteria for valid instance:
+        1. first name and last name should be non black and not None.
+        2. exactly 6 numbers in the numbers list following the valid number criterias:
+           a. all numeric.
+           b. within range based on which ball - white or power ball - it is.
+           c. no duplicates.
+
+        :return (bool): True if player instance is valid. False otherwise.
+        """
+
+        # Either name is None
+        if self.first_name is None or self.last_name is None:
+            return False
+
+        # Either name is blank
+        elif len(self.first_name.strip()) == 0 or len(self.last_name.strip()) == 0:
+            return False
+
+        # not exactly 6 numbers in the list.
+        elif len(self.numbers) != 6:
+            return False
+
     def __str__(self):
         """
         String representation of the player instance displaying the names and ball numbers.
