@@ -231,3 +231,36 @@ class TestPlayerClass:
         assert player.last_name == input_names[1]
         assert player.numbers == input_numbers
 
+    def test_from_input_with_invalid_names_blank_spaces_newline(self):
+
+        input_names = ['', '   ', '\n', 'Foo', '', '  ', '\n', 'Bar']
+        input_numbers = [2, 5, 8, 13, 45, 24]
+
+        input_data = input_names + input_numbers
+
+        with mock.patch('builtins.input', side_effect=input_data):
+            player = Player.from_input()
+
+        expected_output_names = ['Foo', 'Bar']
+        expected_output_numbers = [2, 5, 8, 13, 45, 24]
+
+        assert player.first_name == expected_output_names[0]
+        assert player.last_name == expected_output_names[1]
+        assert player.numbers == expected_output_numbers
+
+    def test_from_input_with_invalid_numbers_repeated_outoflimit_notanumber(self):
+
+        input_names = ['Foo', 'Bar']
+        input_numbers = [2, -1,  5,  2, 'X', 100, 8, 13, 45, 30, 70, 24]
+
+        input_data = input_names + input_numbers
+
+        with mock.patch('builtins.input', side_effect=input_data):
+            player = Player.from_input()
+
+        expected_output_names = ['Foo', 'Bar']
+        expected_output_numbers = [2, 5, 8, 13, 45, 24]
+
+        assert player.first_name == expected_output_names[0]
+        assert player.last_name == expected_output_names[1]
+        assert player.numbers == expected_output_numbers
