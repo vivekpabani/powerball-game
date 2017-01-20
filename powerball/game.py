@@ -17,3 +17,12 @@ class Game:
 
         self.players = list()
         self.winning_numbers = list()
+
+    def add_player(self):
+        """
+        Create a new player by calling the from_input method of Player class which returns Player instance.
+        Add the instance to player list.
+        """
+
+        player = Player.from_input()
+        self.players.append(player)
