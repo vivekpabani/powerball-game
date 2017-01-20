@@ -26,3 +26,25 @@ class Game:
 
         player = Player.from_input()
         self.players.append(player)
+
+    def begin(self):
+        """
+        Begin the game by calling the add_player to add the first player.
+        Keep asking if want to add more players.
+        Call add_player till the answer is yes.
+        """
+
+        add_more = True
+
+        # since add_more is True, this will ask for first player details by default.
+        # further players data depend on user response to add more.
+
+        while add_more:
+            self.add_player()
+
+            # True if user enters 'Y' or 'y'. False for any other input.
+
+            add_more = (input("Do you want to add another employee? (y/n) : ").strip() == 'y')
+
+
+
