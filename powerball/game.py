@@ -46,5 +46,13 @@ class Game:
 
             add_more = (input("Do you want to add another employee? (y/n) : ").strip().lower() == 'y')
 
+    def display_players(self):
+        """
+        Print all players data.
+        """
 
+        print('\n')
+
+        for player in self.players:
+            print(player)
 
