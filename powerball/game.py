@@ -1,9 +1,16 @@
 #!/usr/bin/env python
 
+"""
+Game class represents the game of powerball.
+"""
+
 from collections import Counter
 from .player import Player
 
 class Game:
+    """
+    Game class for powerball game.
+    """
 
     def __init__(self, players=None):
         """
@@ -24,8 +31,8 @@ class Game:
 
     def add_player(self):
         """
-        Create a new player by calling the from_input method of Player class which returns Player instance.
-        Add the instance to player list.
+        Create a new player by calling the from_input method of Player class
+        which returns Player instance. Add the instance to player list.
         """
 
         player = Player.from_input()
@@ -48,12 +55,14 @@ class Game:
 
             # True if user enters 'Y' or 'y'. False for any other input.
 
-            add_more = (input("\nDo you want to add another player? (y for yes/any key for no) : ").strip().lower() == 'y')
+            prompt = "\nDo you want to add another player? (y for yes/any key for no) : "
+            response = input(prompt).strip().lower()
+            add_more = (response == 'y')
 
     def generate_winning_numbers(self):
         """
         Generate the winning number based on the players numbers.
-        The 5 white balls are generated from the top 5 white ball numbers entered by all players.
+        The 5 white balls are generated from the top 5 white ball entered by all players.
         The 6th power ball is generated from the maximum occuring user power balls.
         If any of those choices have ties, they are resolved randomly.
         Add the winning numbers to the winning_numbers.
