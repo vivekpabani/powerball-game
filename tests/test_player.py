@@ -46,3 +46,57 @@ class TestPlayerClass:
 
         name = Player._get_name('name_type')
         assert name == 'Foo'
+
+    def test_is_valid_number_with_valid_wb_15(self):
+
+        number = 15
+        number_list = [10, 20]
+
+        valid = Player.is_valid_number(number, number_list)
+
+        assert valid == True
+
+    def test_is_valid_number_with_valid_wb_1_lower_limit(self):
+
+        number = 1
+        number_list = [10, 20]
+
+        valid = Player.is_valid_number(number, number_list)
+
+        assert valid == True
+
+    def test_is_valid_number_with_valid_wb_69_upper_limit(self):
+
+        number = 69
+        number_list = [10, 20]
+
+        valid = Player.is_valid_number(number, number_list)
+
+        assert valid == True
+
+    def test_is_valid_number_with_valid_pb_15(self):
+
+        number = 15
+        number_list = [10, 20, 30, 40, 50]
+
+        valid = Player.is_valid_number(number, number_list)
+
+        assert valid == True
+
+    def test_is_valid_number_with_valid_pb_1_lower_limit(self):
+
+        number = 1
+        number_list = [10, 20, 30, 40, 50]
+
+        valid = Player.is_valid_number(number, number_list)
+
+        assert valid == True
+
+    def test_is_valid_number_with_valid_pb_26_upper_limit(self):
+
+        number = 26
+        number_list = [10, 20, 30, 40, 50]
+
+        valid = Player.is_valid_number(number, number_list)
+
+        assert valid == True
