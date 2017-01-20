@@ -273,3 +273,9 @@ class TestPlayerClass:
         player = Player(names[0], names[1], numbers)
 
         assert player.is_valid_player() == True
+
+    def test_is_valid_player_with_no_arguments(self):
+
+        player = Player()
+
+        assert player.is_valid_player() == False
