@@ -46,6 +46,34 @@ class Game:
 
             add_more = (input("Do you want to add another employee? (y/n) : ").strip().lower() == 'y')
 
+    def get_white_ball_numbers(self):
+        """
+        Get the white ball numbers from all the players and return as a list.
+
+        :return (list): list of white ball numbers extracted from all the players numbers.
+        """
+
+        numbers = list()
+
+        for player in self.players:
+            numbers.extend(player.numbers[:-1])
+
+        return numbers
+
+    def get_power_ball_numbers(self):
+        """
+        Get the power ball numbers from all the players and return as a list.
+
+        :return (list): list of power ball numbers extracted from all the players numbers.
+        """
+
+        numbers = list()
+
+        for player in self.players:
+            numbers.append(player.numbers[-1])
+
+        return numbers
+
     def display_players(self):
         """
         Print all players data.
