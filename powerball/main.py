@@ -1,4 +1,11 @@
-#!/usr/bin/python
+#!/usr/bin/env python
+
+"""
+The main script to run the powerball game simulation.
+"""
+
+__author__ = "vivek"
+
 
 from .game import Game
 from .player import Player

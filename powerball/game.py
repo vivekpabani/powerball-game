@@ -4,8 +4,12 @@
 Game class represents the game of powerball.
 """
 
+__author__ = "vivek"
+
+
 from collections import Counter
 from .player import Player
+
 
 class Game:
     """

@@ -4,6 +4,8 @@
 The Player class of the application represents the player of the game.
 """
 
+__author__ = "vivek"
+
 
 class Player:
     """
