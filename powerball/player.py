@@ -188,6 +188,33 @@ class Player:
         elif len(self.numbers) != 6:
             return False
 
+        else:
+            # check if all numbers are numeric.
+            for num in self.numbers:
+                if not isinstance(num, int):
+                    return False
+
+            white_balls = self.numbers[:5]
+            power_ball = self.numbers[5]
+            distinct_wb = set(white_balls)
+
+            # minimum and maximum from the white balls to be compared with valid range.
+            min_wb, max_wb = min(white_balls), max(white_balls)
+
+            # repeated white balls.
+            if len(distinct_wb) != 5:
+                return False
+
+            # white ball out of range.
+            elif min_wb < 1 or max_wb > 69:
+                return False
+
+            # power ball out of range.
+            elif power_ball < 1 or power_ball > 26:
+                return False
+
+        return True
+
     def __str__(self):
         """
         String representation of the player instance displaying the names and ball numbers.
