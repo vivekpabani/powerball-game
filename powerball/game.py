@@ -78,6 +78,7 @@ class Game:
                 return
 
         # get the list of white balls and power balls entered by all players.
+
         wb_nums = self.get_white_ball_numbers()
         pb_nums = self.get_power_ball_numbers()
 
