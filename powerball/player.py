@@ -6,8 +6,11 @@ The Player class of the application represents the player of the game.
 
 
 class Player:
+    """
+    Player class for the powerball game.
+    """
 
-    def __init__(self, first_name = None, last_name = None, numbers = None):
+    def __init__(self, first_name=None, last_name=None, numbers=None):
         """
         Initiate the player instance.
         The first name, last name and numbers can be provided as arguments here,
@@ -16,7 +19,7 @@ class Player:
         :param first_name (str) (default: None): first name of the player.
         :param last_name (str) (default: None): last name of the player.
         :param numbers (list) (default: None): favorite numbers of the player
-                                including the white ball numbers and power ball numbers.
+                       ncluding the white ball numbers and power ball numbers.
         """
 
         self.first_name = first_name
@@ -32,8 +35,8 @@ class Player:
     @classmethod
     def from_input(cls):
         """
-        A class method to create an instance of Player with the user inputs for the attributes.
-        Get first name, last name and numbers from user by calling respective methods.
+        A class method to create an instance of Player with the user inputs for the
+        attributes. Get first, last name and numbers from user by calling respective methods.
 
         :return (Player): an instance of Player class with user entered attributes.
         """
@@ -76,7 +79,8 @@ class Player:
 
         numbers = list()
 
-        # dictionary of the number input prompts based on - which numbered ball, valid range and exclude list.
+        # dictionary of the number input prompts based on-
+        # which numbered ball, valid range and exclude list.
 
         display_dict = dict([(1, "Select 1st # (1 thru 69): "),
                              (2, "Select 2nd # (1 thru 69 excluding {}): "),
@@ -85,7 +89,8 @@ class Player:
                              (5, "Select 5th # (1 thru 69 excluding {}, {}, {}, and {}): "),
                              (6, "Select Power Ball # (1 thru 26): ")])
 
-        # get six numbers by asking user for next number and validate each number before adding to final list.
+        # get six numbers by asking user for next number
+        # and validate each number before adding to final list.
 
         for i in range(1, 7):
 
@@ -162,8 +167,9 @@ class Player:
     def is_valid_player(self):
         """
         Check if player is valid by verifying all the attributes.
-        In case when player instance is created by from_input method, verifiction is done by default.
-        When player instance is created by calling init method by providing the attributes explicitly,
+        In case when player instance is created by from_input method,
+        verifiction is done by default. When player instance is created
+        by calling init method by providing the attributes explicitly,
         this method verifies if the instance is valid.
 
         Criteria for valid instance:
@@ -224,7 +230,9 @@ class Player:
         """
 
         if self.is_valid_player():
-            display = "{} {} {} {} {} {} {} Powerball: {} ".format(self.first_name, self.last_name, *self.numbers)
+            display = "{} {} {} {} {} {} {} Powerball: {} ".format(self.first_name,
+                                                                   self.last_name,
+                                                                   *self.numbers)
         else:
             display = "Player object is not instancited with all valid data."
 
