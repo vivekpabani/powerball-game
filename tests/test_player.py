@@ -279,3 +279,66 @@ class TestPlayerClass:
         player = Player()
 
         assert player.is_valid_player() == False
+
+    def test_is_valid_player_with_invalid_arguments_names_none(self):
+
+        names = ['', '']
+        numbers = [2, 5, 8, 13, 45, 24]
+
+        player = Player(names[0], names[1], numbers)
+
+        assert player.is_valid_player() == False
+
+    def test_is_valid_player_with_invalid_arguments_numbers_none(self):
+
+        names = ['Foo', 'Bar']
+        numbers = []
+
+        player = Player(names[0], names[1], numbers)
+
+        assert player.is_valid_player() == False
+
+    def test_is_valid_player_with_invalid_arguments_numbers_repeated(self):
+
+        names = ['Foo', 'Bar']
+        numbers = [2, 5, 8, 5, 45, 24]
+
+        player = Player(names[0], names[1], numbers)
+
+        assert player.is_valid_player() == False
+
+    def test_is_valid_player_with_invalid_arguments_numbers_out_of_range(self):
+
+        names = ['Foo', 'Bar']
+        numbers = [2, 5, 8, 100, 45, 24]
+
+        player = Player(names[0], names[1], numbers)
+
+        assert player.is_valid_player() == False
+
+    def test_is_valid_player_with_invalid_arguments_numbers_notanumber(self):
+
+        names = ['Foo', 'Bar']
+        numbers = [2, 5, 8, 'X', 45, 24]
+
+        player = Player(names[0], names[1], numbers)
+
+        assert player.is_valid_player() == False
+
+    def test_is_valid_player_with_invalid_arguments_numbers_count_less_than_6(self):
+
+        names = ['Foo', 'Bar']
+        numbers = [2, 5, 8, 24]
+
+        player = Player(names[0], names[1], numbers)
+
+        assert player.is_valid_player() == False
+
+    def test_is_valid_player_with_invalid_arguments_numbers_count_more_than_6(self):
+
+        names = ['Foo', 'Bar']
+        numbers = [2, 5, 8, 10, 15, 30, 40, 45, 24]
+
+        player = Player(names[0], names[1], numbers)
+
+        assert player.is_valid_player() == False
