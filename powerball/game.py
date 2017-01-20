@@ -15,7 +15,11 @@ class Game:
         :param players (list): list of players
         """
 
-        self.players = list()
+        if players and isinstance(players, list):
+            self.players = players
+        else:
+            self.players = list()
+
         self.winning_numbers = list()
 
     def add_player(self):
