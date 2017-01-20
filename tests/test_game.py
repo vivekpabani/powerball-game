@@ -1,4 +1,11 @@
-#!/usr/bin/python
+#!/usr/bin/env python
+
+"""
+Tests for the Game class methods.
+"""
+
+__author__ = "vivek"
+
 
 try:
     import mock
