@@ -216,3 +216,18 @@ class TestPlayerClass:
         expected_output_numbers = [2, 5, 15, 8, 13, 24]
 
         assert numbers == expected_output_numbers
+
+    def test_from_input_with_all_valid_inputs(self):
+
+        input_names = ['Foo', 'Bar']
+        input_numbers = [2, 5, 8, 13, 45, 24]
+
+        input_data = input_names + input_numbers
+
+        with mock.patch('builtins.input', side_effect=input_data):
+            player = Player.from_input()
+
+        assert player.first_name == input_names[0]
+        assert player.last_name == input_names[1]
+        assert player.numbers == input_numbers
+
