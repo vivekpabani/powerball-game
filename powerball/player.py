@@ -51,4 +51,52 @@ class Player:
 
         return name
 
+    @staticmethod
+    def _get_numbers():
+        """
+        Get the six favorite numbers from the user and verify.
 
+        :return (list): list of valid numbers entered by user.
+        """
+
+        numbers = list()
+
+        # dictionary of the number input prompts based on - which numbered ball, valid range and exclude list.
+
+        display_dict = dict([(1, "Select 1st # (1 thru 69): "),
+                             (2, "Select 2nd # (1 thru 69 excluding {}): "),
+                             (3, "Select 3rd # (1 thru 69 excluding {} and {}): "),
+                             (4, "Select 4th # (1 thru 69 excluding {}, {}, and {}): "),
+                             (5, "Select 5th # (1 thru 69 excluding {}, {}, {}, and {}): "),
+                             (6, "Select Power Ball # (1 thru 26): ")])
+
+        # get six numbers by asking user for next number and validate each number before adding to final list.
+
+        for i in range(1, 7):
+
+            valid = False
+
+            # ask for current number till a valid number is not entered.
+
+            while not valid:
+
+                display_string = display_dict[i].format(*numbers)
+
+                # if number is not a numeric, raise ValueError.
+                # if numeric, check for validity.
+
+                try:
+                    next_number = int(input(display_string))
+                    valid = Player.is_valid_number(next_number, numbers)
+
+                    if not valid:
+                        print("Number not allowed. Please try again.")
+
+                except ValueError:
+                    print("Invalid input. Please try again.")
+
+            # a valid number is added to the numbers list.
+
+            numbers.append(next_number)
+
+        return numbers
