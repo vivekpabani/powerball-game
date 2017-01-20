@@ -29,3 +29,26 @@ class Player:
         else:
             self.numbers = list()
 
+    @staticmethod
+    def _get_name(name_type):
+        """
+        Get the name of name_type from the user and verify.
+
+        :param name_type (str): The type of name - 'first' or 'last' - to be used in prompt.
+
+        :return (str): valid user entered name.
+        """
+
+        name = ''
+
+        # while the user entered name is not valid, ask for the name.
+
+        while not name:
+            name = input("Enter your {} name: ".format(name_type)).strip()
+
+            if not name:
+                print("Invalid {} name. Please try again.".format(name_type))
+
+        return name
+
+
