@@ -17,30 +17,19 @@
 
 # Sample output:
 
-Enter your first name: Wade
-
-Enter your last name: Wilson
-
-select 1st # (1 thru 69): 12
-
-select 2nd # (1 thru 69 excluding 12): 20
-
-select 3rd # (1 thru 69 excluding 12 and 20): 23
-
-select 4th # (1 thru 69 excluding 12, 20, and 23: 56
-
-select 5th # (1 thru 69 excluding 12, 20, 23, and 56: 30
-
-select Power Ball # (1 thru 26): 25
+Enter your first name: Wade<br/>
+Enter your last name: Wilson<br/>
+select 1st # (1 thru 69): 12<br/>
+select 2nd # (1 thru 69 excluding 12): 20<br/>
+select 3rd # (1 thru 69 excluding 12 and 20): 23<br/>
+select 4th # (1 thru 69 excluding 12, 20, and 23: 56<br/>
+select 5th # (1 thru 69 excluding 12, 20, 23, and 56: 30<br/>
+select Power Ball # (1 thru 26): 25<br/>
 
 
-
-Wade Wilson 15 26 33 60 34 Powerball: 16
-
-Frank Castle 15 26 34 56 61 Powerball: 16
+Wade Wilson 15 26 33 60 34 Powerball: 16<br/>
+Frank Castle 15 26 34 56 61 Powerball: 16<br/>
 
 
-
-Powerball winning number:
-
-15 26 34 55 63 Powerball: 16
+Powerball winning number:<br/>
+15 26 34 55 63 Powerball: 16<br/>
